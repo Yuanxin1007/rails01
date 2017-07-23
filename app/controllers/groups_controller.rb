@@ -17,6 +17,12 @@ def create
   redirect_to groups_path
 end
 
+def update
+  @group = Group.find(params[:id])
+  @group.update(group_pramas)
+  redirect_to groups_path, notice: "Update success"
+end
+
   def show
     @group = Group.find(params[:id])
   end
