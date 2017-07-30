@@ -13,14 +13,21 @@ end
 
 def create
   @group = Group.new(group_pramas)
-  @group.save
+
+  if @group.save
   redirect_to groups_path
+else
+  render :new
+end
 end
 
 def update
   @group = Group.find(params[:id])
-  @group.update(group_pramas)
+  if @group.update(group_pramas)
   redirect_to groups_path, notice: "Update success"
+  else
+  render :edit
+end
 end
 
   def show

@@ -3,7 +3,12 @@
 
 <h2> 编辑讨论版 </h2>
 <hr>
-<%= form_for @group do |f|%>
+  <%= form_for @group do |f|%>
+  <% if @group.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+  </ul>
+  <% end %>
 
 <h4> 标题 </h4>
 
