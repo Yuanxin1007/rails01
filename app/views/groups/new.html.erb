@@ -4,21 +4,7 @@
 <h2> 新增讨论版 </h2>
 <hr>
 <%= form_for @group do |f|%>
-<% if @group.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
-<% end %>
 
+<% render "form" %>
 
-<h4> 标题 </h4>
-
-<%=f.text_field :title  %>
-<br>
-<h4> 概述 </h4>
-<br>
-<%=f.text_area :description %>
-<br>
-<%= f.submit "Submit", :disable_with => 'Submiting...' %>
-<% end %>
 </div>
