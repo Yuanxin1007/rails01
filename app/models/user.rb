@@ -9,5 +9,15 @@ class User < ApplicationRecord
          has_many :participated_groups, :through => :group_relationships, :source => :group
 def is_number_of?(group)
   participated_groups.include?(group)
-end         
+end
+
+def join!(group)
+  participated_groups << group
+end
+
+
+def quit!(group)
+  participated_groups.delete(group)
+end
+
 end
